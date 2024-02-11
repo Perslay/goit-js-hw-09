@@ -11,21 +11,22 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
+let colorSwitcher;
+
 function onStart() {
-  let color = getRandomHexColor();
-  body.style.backgroundColor = color;
+  colorSwitcher = setInterval(switchColor, 1000);
 
-  timerId = setInterval(() => {
-    color = getRandomHexColor();
-    body.style.backgroundColor = color;
-  }, 1000);
+  function switchColor() {
+    return (body.style.backgroundColor = getRandomHexColor());
+  }
 
+  switchColor();
   stopBtn.disabled = false;
   startBtn.disabled = true;
 }
 
 function onStop() {
-  clearInterval(timerId);
+  clearInterval(colorSwitcher);
   stopBtn.disabled = true;
   startBtn.disabled = false;
 }
