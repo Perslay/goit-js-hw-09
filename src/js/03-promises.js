@@ -20,11 +20,10 @@ function createPromise(position, delay) {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  const totalAmount = amount.value;
   let createdPromises = 0;
 
   const timerId = setInterval(() => {
-    if (createdPromises >= totalAmount) {
+    if (createdPromises >= amount.value) {
       clearInterval(timerId);
       return;
     }
