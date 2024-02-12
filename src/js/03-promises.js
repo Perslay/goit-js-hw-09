@@ -18,7 +18,7 @@ function createPromise(position, delay) {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  const totalAmount = parseInt(amount.value);
+  const totalAmount = amount.value;
   let createdPromises = 0;
 
   const timerId = setInterval(() => {
