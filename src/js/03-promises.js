@@ -1,5 +1,7 @@
 'use strict';
 
+import Notiflix from 'notiflix';
+
 const form = document.querySelector('.form');
 const delay = document.querySelector("[name='delay']");
 const step = document.querySelector("[name='step']");
@@ -27,8 +29,8 @@ form.addEventListener('submit', event => {
       return;
     }
     createPromise(createdPromises + 1, delay.value)
-      .then(resolved => console.log(resolved))
-      .catch(rejected => console.log(rejected));
+      .then(resolved => Notiflix.Notify.success(resolved))
+      .catch(rejected => Notiflix.Notify.failure(rejected));
     createdPromises++;
   }, step.value);
 });
