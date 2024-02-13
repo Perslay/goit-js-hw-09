@@ -82,6 +82,7 @@ function onStart() {
   }
 
   startCountdown();
+  datePicker.disabled = true;
 }
 
 startBtn.addEventListener('click', onStart);
